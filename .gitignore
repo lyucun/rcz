@@ -1,0 +1,28 @@
+# CMake构建文件
+build/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+./debugbuild
+
+# 可执行文件
+*.exe
+*.out
+
+# 临时文件
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# IDE和编辑器文件
+*.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# 操作系统创建的文件
+.DS_Store
+Thumbs.db
