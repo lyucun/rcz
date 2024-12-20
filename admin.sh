@@ -12,10 +12,18 @@ function DELETE(){
     rm -rf ./debugbuild
 }
 
+function START(){
+    echo "Starting server..."
+    cd ./debugbuild && ./src/mzone/zoneexe
+}
 
+function CLEAER(){
+    echo "Cleaning server..."
+    cd ./debugbuild && make clean
+}
 case $1 in
     start)
-        echo "Starting server..."
+        START
         ;;    
     stop)
         echo "Stopping server..."
@@ -31,6 +39,9 @@ case $1 in
     delete)
         DELETE
         ;;    
+    clean)
+        CLEAER
+        ;;
     *)
         echo "Usage: $0 {start|stop|restart}"
         exit 1
