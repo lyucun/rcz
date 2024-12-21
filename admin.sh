@@ -4,7 +4,7 @@ function DEBUG(){
     if [ ! -d "./debugbuild" ];then
         mkdir ./debugbuild
     fi
-    cd ./debugbuild && cmake .. && make -j4
+    cd ./debugbuild && cmake .. && make -j1
 }
 
 function DELETE(){

@@ -26,11 +26,18 @@ FIND_INCLUDE_DIR(HEADER_DIRS "${PROJECT_SOURCE_DIR}")  # 指定需要查找的�
 # 查找源文件和头文件
 file(GLOB_RECURSE SOURCES "**/*.cpp")  # 查找所有的 .cpp 文件
 # 添加包含目录
-include_directories(${THIRED_PATH}/spdlog/include ${THIRED_PATH}/workflow/_include ${HEADER_DIRS})
+include_directories(
+    ${HEADER_DIRS}
+    ${THIRED_PATH}/spdlog/include
+    ${THIRED_PATH}/workflow/_include 
+    ${THIRED_PATH}/nlohmann
+
+)
 
 # 创建可执行文件
 add_executable(zoneexe ${SOURCES})  # 创建可执行文件，包含所有源文件
 
 # 链接库
+target_link_libraries(zoneexe -lpthread)
 target_link_libraries(zoneexe ${THIRED_PATH}/spdlog/lib/libspdlog.a)
-target_link_libraries(zoneexe ${THIRED_PATH}/workflow/_lib/libworkflow.a)
+target_link_libraries(zoneexe ${THIRED_PATH}/workflow/_lib/libworkflow.so)
